@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue Dropdown</title>
+
+    <!-- scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://unpkg.com/vue-router"></script>
+
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+    <!-- styles -->
+    <link rel="stylesheet" type="text/css" href="public/css/normalize.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="public/css/stylesheet.css" media="screen" />
+
+  </head>
+
+  <body>
+
+    <div id="app">
+      <header>
+        <div class="header-top">
+          <h1 class="mt ml"><router-link to="/" class="brand">New Reliance Media LLC.</router-link></h1>
+
+          <div class="flex">
+          <li><router-link to="/link1" class="links">Link1</router-link></li>
+          <li><router-link to="/link2" class="links">Link2</router-link></li>
+          </div>
+
+        </div>
+
+        <nav>
+
+          <li><router-link to="/nav1" class="nav-item">NavItem 1</router-link></li>
+          <li><router-link to="/nav2" class="nav-item">NavItem 2</router-link></li>
+
+          <div class="dropdown" @click="isOpen = !isOpen">
+          <button class="trigger" type="button">
+          dropdown menu
+          </button>
+
+            <div class="dropdown-menu" v-show="isOpen">
+            <div class="dropdown-menu-item">
+            <li><router-link to="/dropdown1" class="item">Dropdown Item 1</router-link></li>
+            <li><router-link to="/dropdown2" class="item">Dropdown Item 2</router-link></li>
+            <li><router-link to="/dropdown3" class="item">Dropdown Item 3</router-link></li>
+            <li><router-link to="/dropdown4" class="item">Dropdown Item 4</router-link></li>
+            </div>
+            </div>
+          </div>
+
+        </nav>
+
+      </header>
+
+      <router-view></router-view>
+
+    </div>
+
+    <!-- scripts -->
+    <script src="views/welcome.js"></script>
+    <script src="views/link1.js"></script>
+    <script src="views/link2.js"></script>
+    <script src="views/nav1.js"></script>
+    <script src="views/nav2.js"></script>
+    <script src="views/dropdown1.js"></script>
+    <script src="views/dropdown2.js"></script>
+    <script src="views/dropdown3.js"></script>
+    <script src="views/dropdown4.js"></script>
+
+    <script>
+    const routes = [
+        {path: '/', component: Welcome},
+        {path: '/link1', component: Link1},
+        {path: '/link2', component: Link2},
+        {path: '/nav1', component: Nav1},
+        {path: '/nav2', component: Nav2},
+        {path: '/dropdown1', component: Dropdown1},
+        {path: '/dropdown2', component: Dropdown2},
+        {path: '/dropdown3', component: Dropdown3},
+        {path: '/dropdown4', component: Dropdown4}
+    ]
+
+    const router = new VueRouter({
+        routes
+    })
+
+    const app = new Vue({
+        router,
+        el:'#app',
+        data:{
+          isOpen:false
+        }
+    }).$mount('#app')
+
+    </script>
+
+  </body>
+</html>
+
+<!-- python -m SimpleHTTPServer 8080 -->
