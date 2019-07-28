@@ -23,7 +23,7 @@
     <div id="app">
       <header>
         <div class="header-top">
-          <h1 class="mt ml"><router-link to="/" class="brand">New Reliance Media LLC.</router-link></h1>
+          <h1 class="mt ml"><router-link exact to="/" class="brand">New Reliance Media LLC.</router-link></h1>
 
           <div class="flex">
           <li><router-link to="/link1" class="links">Link1</router-link></li>
@@ -61,6 +61,7 @@
     </div>
 
     <!-- scripts -->
+    <script src="views/not_found.js"></script>
     <script src="views/welcome.js"></script>
     <script src="views/link1.js"></script>
     <script src="views/link2.js"></script>
@@ -73,6 +74,7 @@
 
     <script>
     const routes = [
+        {path: '*', component: NotFound},
         {path: '/', component: Welcome},
         {path: '/link1', component: Link1},
         {path: '/link2', component: Link2},

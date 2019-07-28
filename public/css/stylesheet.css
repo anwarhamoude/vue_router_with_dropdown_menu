@@ -246,6 +246,11 @@ ul,li{
   padding-bottom:20px;
 }
 
+.router-link-active{
+  color:purple;
+  font-weight:700;
+}
+
 .space-between{
   display:flex;
   justify-content:space-between;
